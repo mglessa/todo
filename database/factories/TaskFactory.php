@@ -13,6 +13,10 @@ class TaskFactory extends Factory
     {
         $userId = User::all()->random();
 
+        while(count($user->categories) == 0) {
+            $userId = User::all()->random();
+        }
+
         return [
             'title' => $this->faker->text(30),
             'description' => $this->faker->text(60),
